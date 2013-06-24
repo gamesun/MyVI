@@ -1,6 +1,8 @@
+# -*- coding:utf-8 -*-
 
 import sys,os
 import wx
+import layout as lyt
 
 """ 
 
@@ -8,22 +10,18 @@ import wx
 
 #---------------------------------------------------------------------------
 
-class MyFrame(wx.Frame):
-    def __init__(self, parent, ID, title):
-        wx.Frame.__init__(self, parent, -1, title, size = (800,500), 
-            style=wx.DEFAULT_FRAME_STYLE|wx.NO_FULL_REPAINT_ON_RESIZE)
-        self.Show(True)
-
-        
 
 
 #---------------------------------------------------------------------------
 
 class App(wx.App):
     def OnInit(self):
-        frame = MyFrame(None, -1, "test")
-        self.SetTopWindow(frame)
-
+        self.frame = lyt.myFrame(None, wx.ID_ANY, "")
+        
+#         self.frame.SetSize((800,600))
+        self.SetTopWindow(self.frame)
+        self.frame.Show()
+        
         return True
 
 
